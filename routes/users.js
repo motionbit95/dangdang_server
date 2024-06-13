@@ -17,9 +17,16 @@ router.post("/signup", async (req, res) => {
       email: email,
       password: password,
     });
-    res.status(201).send(`Successfully created new user: ${userRecord.uid}`);
+    res.status(200).send({
+      message: `회원가입이 완료되었습니다.`,
+      code: "success",
+      id: userRecord.uid,
+    });
   } catch (error) {
-    res.status(400).send(`Error creating new user: ${error.message}`);
+    res.status(400).send({
+      message: "[error] " + error.message,
+      code: "error",
+    });
   }
 });
 
@@ -42,6 +49,16 @@ router.delete("/delete/:id", async (req, res) => {
   }
 });
 
+router.get("/delete/:id", async (req, res) => {
+  const firestore = admin.firestore();
+  try {
+    await firestore.collection("User").doc(req.params.id).delete();
+    res.send(`Successfully deleted document: ${req.params.id}`);
+  } catch (error) {
+    res.status(400).send(`Error deleting document: ${error.message}`);
+  }
+});
+
 router.post("/add/:id", async (req, res) => {
   const firestore = admin.firestore();
   try {
@@ -61,7 +78,10 @@ router.post("/add/:id", async (req, res) => {
 router.get("/list", async (req, res) => {
   const firestore = admin.firestore();
   try {
-    const snapshot = await firestore.collection("User").get();
+    const snapshot = await firestore
+      .collection("User")
+      .orderBy("createdAt", "desc")
+      .get();
     const data = snapshot.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };
     });
@@ -72,6 +92,7 @@ router.get("/list", async (req, res) => {
 });
 
 router.get("/get/:id", async (req, res) => {
+  console.log(req.params.id);
   const firestore = admin.firestore();
   try {
     const snapshot = await firestore
@@ -79,9 +100,10 @@ router.get("/get/:id", async (req, res) => {
       .doc(req.params.id)
       .get();
     const data = snapshot.data();
+    console.log(data);
     res.send(data);
   } catch (error) {
-    res.status(400).send(error.message);
+    res.status(400).send({ code: "error", message: error.message });
   }
 });
 

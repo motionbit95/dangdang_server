@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const serviceAccount = require("./path/to/serviceAccountKey.json");
+const serviceAccount = require("./serviceAccountKey.json");
 // const serviceAccount = require("/home/hosting_users/dnsjxn/apps/dnsjxn_dengdengview/path/to/serviceAccountKey.json");
 const fs = require("fs");
 const express = require("express");
@@ -13,11 +13,10 @@ app.use(bodyParser.json());
 
 const userRoute = require("./routes/users");
 
-app.use("/auth", userRoute);
-
 app.use(express.json());
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, "public")));
 
 const port = 8001;
 
@@ -26,6 +25,8 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   storageBucket: "dangdangview.appspot.com",
 });
+
+app.use("/auth", userRoute);
 
 const cname = "Campain";
 
@@ -718,6 +719,10 @@ async function deleteCollection(collectionRef) {
     deleteCollection(collectionRef);
   });
 }
+
+app.get("/", (req, res) => {
+  res.send({ message: "Hello World!" });
+});
 
 app.get("/reset/:collection", async (req, res) => {
   const firestore = admin.firestore();

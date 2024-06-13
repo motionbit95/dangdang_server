@@ -15,6 +15,7 @@ const dummyUsers = [
     phone: "01011112222",
     street: "서울 강남구 역삼로",
     zonecode: "06130",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
   },
   {
     id: "ri1oT6BwBqhSPuPTIOnWcD54xIy1",
@@ -32,6 +33,7 @@ const dummyUsers = [
     phone: "01022223333",
     street: "서울 서초구 서초대로",
     zonecode: "06620",
+    createdAt: new Date("2024-06-02T16:00:00.000Z"),
   },
   {
     id: "03zVfZUwtvRjXyUSEh5Be6uv04o2",
@@ -49,6 +51,7 @@ const dummyUsers = [
     phone: "01033334444",
     street: "서울 송파구 올림픽로",
     zonecode: "05510",
+    createdAt: new Date("2024-06-03T16:00:00.000Z"),
   },
   {
     id: "SGdJKY6g9zeyEN9F3BrVdiXnhsB2",
@@ -66,6 +69,7 @@ const dummyUsers = [
     phone: "01044445555",
     street: "서울 종로구 종로",
     zonecode: "03150",
+    createdAt: new Date("2024-06-04T16:00:00.000Z"),
   },
   {
     id: "ahk9HDrMbqXYkmH8OQjlv4GKwjL2",
@@ -83,6 +87,7 @@ const dummyUsers = [
     phone: "01055556666",
     street: "서울 마포구 월드컵로",
     zonecode: "03900",
+    createdAt: new Date("2024-06-05T16:00:00.000Z"),
   },
   {
     id: "nKZx8pDeegYphW7jpMTAGo4h9E32",
@@ -100,6 +105,7 @@ const dummyUsers = [
     phone: "01066667777",
     street: "서울 강동구 천호대로",
     zonecode: "05330",
+    createdAt: new Date("2024-06-06T16:00:00.000Z"),
   },
   {
     id: "ZsRmT7gbEmQDtF4EGclyFnGwEhw1",
@@ -117,6 +123,7 @@ const dummyUsers = [
     phone: "01077778888",
     street: "서울 용산구 이태원로",
     zonecode: "04390",
+    createdAt: new Date("2024-06-07T16:00:00.000Z"),
   },
   {
     id: "f1mAsPMzfzfBjuXZzHUhOtO0J9Q2",
@@ -134,6 +141,7 @@ const dummyUsers = [
     phone: "01088889999",
     street: "서울 동작구 상도로",
     zonecode: "06930",
+    createdAt: new Date("2024-06-08T16:00:00.000Z"),
   },
   {
     id: "1ERoR2K6UWNWaylLFoQzyihbTOr2",
@@ -151,6 +159,7 @@ const dummyUsers = [
     phone: "01099990000",
     street: "서울 은평구 통일로",
     zonecode: "03300",
+    createdAt: new Date("2024-06-09T16:00:00.000Z"),
   },
   {
     id: "JCjTi0WqhsMZiFxiw0slyozZcx02",
@@ -168,6 +177,7 @@ const dummyUsers = [
     phone: "01010101010",
     street: "서울 관악구 신림로",
     zonecode: "08700",
+    createdAt: new Date("2024-06-10T16:00:00.000Z"),
   },
 ];
 
