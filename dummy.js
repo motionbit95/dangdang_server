@@ -1579,4 +1579,87 @@ const dummyCampains = [
   },
 ];
 
-module.exports = { dummyUsers, dummyCampains };
+const dummyTesters = [
+  {
+    id: "01H3xv60DSdaedxnK6cc",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "MX69Do2ESTVpgp18XplEzvKTBCe2",
+    step: 0,
+  },
+  {
+    id: "0GIRAms8H8ZjlCTSAWdv",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "ri1oT6BwBqhSPuPTIOnWcD54xIy1",
+    step: 1,
+  },
+  {
+    id: "0HRl1fUgghvTg4hbUlSC",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "03zVfZUwtvRjXyUSEh5Be6uv04o2",
+    step: 2,
+  },
+  {
+    id: "0S51rh77N1sBy56EDhBP",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "ahk9HDrMbqXYkmH8OQjlv4GKwjL2",
+    step: 3,
+  },
+  {
+    id: "0TiKc8kZWmJwJ6t8tflo",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "nKZx8pDeegYphW7jpMTAGo4h9E32",
+    step: 2,
+  },
+  {
+    id: "0dq5ZCkmmjmAr51fm2Br",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "SGdJKY6g9zeyEN9F3BrVdiXnhsB2",
+    step: 0,
+  },
+  {
+    id: "0qijuAJDdzfEpZREBLMy",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "ZsRmT7gbEmQDtF4EGclyFnGwEhw1",
+    step: 1,
+  },
+  {
+    id: "0rhAMbFf6o5heu7kq47Y",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "f1mAsPMzfzfBjuXZzHUhOtO0J9Q2",
+    step: 0,
+  },
+  {
+    id: "0tcc6f96vFgD69axJqhl",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "1ERoR2K6UWNWaylLFoQzyihbTOr2",
+    step: 1,
+  },
+  {
+    id: "0ze7OPNBXiPv32aiT5Vo",
+    cid: "siBLALrjCLTC8PvgPalq",
+    createdAt: new Date("2024-06-01T16:00:00.000Z"),
+    mozip_type: "naver",
+    uid: "JCjTi0WqhsMZiFxiw0slyozZcx02",
+    step: 1,
+  },
+];
+
+module.exports = { dummyUsers, dummyCampains, dummyTesters };

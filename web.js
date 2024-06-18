@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 
 const userRoute = require("./routes/users");
 const campainRoute = require("./routes/campains");
+const testerRoute = require("./routes/testers");
 
 app.use(express.json());
 
@@ -29,6 +30,7 @@ admin.initializeApp({
 
 app.use("/auth", userRoute);
 app.use("/campain", campainRoute);
+app.use("/tester", testerRoute);
 
 const cname = "Campain";
 
@@ -532,7 +534,7 @@ const templateRequest = (req, res) => {
 // const axios = require("axios");
 const qs = require("qs");
 const { addDummyData } = require("./public/javascripts/dummySetting");
-const { dummyUsers, dummyCampains } = require("./dummy");
+const { dummyUsers, dummyCampains, dummyTesters } = require("./dummy");
 const alimtalkSend = (req, res) => {
   // 알림톡 전송
 
@@ -741,6 +743,8 @@ app.get("/add-dummy/:collection", async (req, res) => {
     dummyDatas = dummyUsers;
   } else if (req.params.collection === "Campain") {
     dummyDatas = dummyCampains;
+  } else if (req.params.collection === "Tester") {
+    dummyDatas = dummyTesters;
   }
 
   try {
