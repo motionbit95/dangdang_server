@@ -84,4 +84,34 @@ router.get("/delete/:id", async (req, res) => {
   }
 });
 
+router.post("/search", async (req, res) => {
+  const firestore = admin.firestore();
+  try {
+    const { conditions } = req.body;
+
+    let query = firestore.collection(collectionName);
+
+    console.log(conditions);
+
+    conditions.forEach((condition) => {
+      query = query.where(condition.field, condition.operator, condition.value);
+    });
+
+    const snapshot = await query.get();
+    if (snapshot.empty) {
+      return res.status(404).send("No matching documents.");
+    }
+
+    let results = [];
+    snapshot.forEach((doc) => {
+      results.push({ id: doc.id, ...doc.data() });
+    });
+
+    res.status(200).json(results);
+  } catch (error) {
+    console.error("Error searching documents:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 module.exports = router;
