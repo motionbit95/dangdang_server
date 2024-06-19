@@ -25,7 +25,8 @@ const port = 8001;
 // Firebase 초기화
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: "dangdangview.appspot.com",
+  // storageBucket: "dangdangview.appspot.com",
+  storageBucket: "motionbit-dangdangview.appspot.com",
 });
 
 app.use("/auth", userRoute);
