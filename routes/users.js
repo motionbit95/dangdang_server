@@ -92,7 +92,7 @@ router.get("/list", async (req, res) => {
 });
 
 router.get("/get/:id", async (req, res) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   const firestore = admin.firestore();
   try {
     const snapshot = await firestore
@@ -100,7 +100,7 @@ router.get("/get/:id", async (req, res) => {
       .doc(req.params.id)
       .get();
     const data = snapshot.data();
-    console.log(data);
+    // console.log(data);
     res.send(data);
   } catch (error) {
     res.status(400).send({ code: "error", message: error.message });
