@@ -25,8 +25,7 @@ const port = 8001;
 // Firebase 초기화
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  // storageBucket: "dangdangview.appspot.com",
-  storageBucket: "motionbit-dangdangview.appspot.com",
+  storageBucket: "dangdangview.appspot.com",
 });
 
 app.use("/auth", userRoute);
@@ -222,7 +221,7 @@ app.post("/crawl", (req, res) => {
 
             const filePath = path.join(
               downloadFolderPath,
-              new Date().toISOString() + image.split("/").pop().split("?")[0]
+              image.split("/").pop().split("?")[0]
             );
 
             // 이미지 다운로드 및 업로드 함수 호출
