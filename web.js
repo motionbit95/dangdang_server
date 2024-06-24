@@ -13,7 +13,7 @@ const serviceAccount = {
   type: "service_account",
   project_id: "dangdangview",
   private_key_id: "65de141e603f8a56abd4e80ac520bf785a76f97d",
-  private_key: process.env.FIREBASE_PRIVATE_KEY,
+  private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
   client_email: "firebase-adminsdk-vjejd@dangdangview.iam.gserviceaccount.com",
   client_id: "110995233168263622855",
   auth_uri: "https://accounts.google.com/o/oauth2/auth",
