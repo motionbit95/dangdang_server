@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const serviceAccount = require("./serviceAccountKey.json");
+// const serviceAccount = require("./serviceAccountKey.json");
 const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -7,6 +7,23 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 const CryptoJS = require("crypto-js");
+require("dotenv").config();
+
+const serviceAccount = {
+  type: "service_account",
+  project_id: "dangdangview",
+  private_key_id: "65de141e603f8a56abd4e80ac520bf785a76f97d",
+  // "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDX0Oo4j7csfNmA\nBzl7UCpD6Oin/D2fioBkF+pTTLzxj4mAzhCOYzZ3ZzDPs1TvVh0BEv7PwnG01bAb\niYzbrma6+fl1WZjMYGYHxFzqT0zGpjsUW0HNnF5WMGv3900cSxTfK2De/M0XhToj\nCcHrTqfkq+faGKhPRh7SUqjqpt/zqwd/pWOKD4dOv/d92JGIq3vf+sZqy2UOKD35\nmBEgkB9wLEwD0DI5kiLzctMmSVeSrqmk6Cy3bDrOqsawM1TsPcbbc5Db6iGJEbdH\nPYErnD9SA1grlkEYq3FLyRrQYYlEHuwEhzOGqe1TBiCu5WtgwvThlJxl8Ulm9Zys\nkd8M99HLAgMBAAECggEAASrZoX2xhXWVbZpcZrzbxatEWuhD4xGKOUBh3Zp8KShY\nG5DByStjN4kg2/bB3luOY5uZMkGAgPRo8/UuBGAwoRFKFqbp6y0YUDFxOTk9lpN+\nnVETDYwrfHbdlqVJTv5e+ggPiZU/fMGVO2xJlr7BrLx7UBQzEN61uviEfmRxsK05\nG5unc821jzgHCyfcIOc6SeLK8Yynbey6IC86TJBpW/3mvokQ7NFL/LtYkA6dsoz6\nJjr3GqUk0jTH9uRqAnXjz4fr5pE6fljDRyVP8GHbfiq3YY0hRsGRVfYJRIYbjblo\n8Jzt7orbSiXAjvI7pd6W14cRM1oavJ0w+bH85S1msQKBgQD+kUrmGjsQUynTkO/a\nvp42+Xb2KXGy3NC13pb4l7b86ckJmNDPQESHuZsjw/mZm4gPXiKBMF3jo+lBgtNM\nJpEXuYjSxpQHdkOqaDkftzHy+naOI4Mrjn4d0MszY/F9aX44t9MFQP47qem77Q8Y\nqRQDY1PIfnacFXgdafrsn2KfsQKBgQDZB8zn+88lyyPaImrbEUlt+wmIhBQGRAEy\n9NYj4MwxCaExfkV2jkP/lVBudgqX7rhUzQIWr62Y/YxRx6P8lhXr2YjxAKl3LPpf\nQvgLBKFFds/p+UM7LGkymiLt4SdqNxanAbH7YaBCzv5GpRoi+2TFW6ft9bOpjMIJ\nRYE3onJEOwKBgD5KBu2u1Wz1LHLcMBRyN/xzpiwtj+iYJ2mZAY/qb5gLDGoQvmc3\n7ozXWaKyvUxcxjocaoz57L9ayCSDgnhLp40KlPQeKvJ4ea4kunWMOeieaIv3HI13\n3FwnTtFQTzLEsWHnePb8JDktJkgZhWwfUwpRL5sLdrJSfoWT/RYRGezBAoGAKrFa\nIZhrW2fmmZaDpqxz4WqsqWox9jmScs+vAEfMYykdyHqqd3Ps9G4O8GvQEasoH6Zk\nbsoIQDxASiYXoCx2C3szcRVMQOFcLzkhSimS//MrWz9pdk56MzYXAOx1sHM9xYST\n2nuN5xaI9qSry43geOJa2nim6weBdAl0LdmK2NkCgYAXAe/X5W19VpvRYQkjY4yb\nEYqd/bRQQxOr8pJpaHTeaPXQ2rQb/zJn9qgPy2xt5qX/BuBie2Qvn2xuyPjwZCxI\nnfR/70g3D+rM1X+XP/s9tSi6A1VupXT5rwtH795JbJeicgudHJH0Ve7SEDragijp\niXkOGoSHuthcVrLyXtcGjQ==\n-----END PRIVATE KEY-----\n",
+  private_key: process.env.FIREBASE_PRIVATE_KEY,
+  client_email: "firebase-adminsdk-vjejd@dangdangview.iam.gserviceaccount.com",
+  client_id: "110995233168263622855",
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://oauth2.googleapis.com/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  client_x509_cert_url:
+    "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-vjejd%40dangdangview.iam.gserviceaccount.com",
+  universe_domain: "googleapis.com",
+};
 
 app.use(bodyParser.json());
 
