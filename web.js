@@ -37,6 +37,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const port = 8001;
 
+console.log(serviceAccount);
+
 // Firebase 초기화
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
