@@ -11,11 +11,19 @@ router.get("/", function (req, res, next) {
   res.send("respond with a resource");
 });
 
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, "0"); // 월은 0부터 시작하므로 +1 필요
+  const day = date.getDate().toString().padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
 router.post("/add", async (req, res) => {
   const firestore = admin.firestore();
   try {
     const data = req.body;
-    data.createdAt = new Date();
+    data.createdAt = formatDate(new Date());
     const docRef = await firestore.collection(collectionName).add(data);
 
     res.send({ ...data, id: docRef.id });
