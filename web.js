@@ -29,6 +29,9 @@ app.use(bodyParser.json());
 const userRoute = require("./routes/users");
 const campainRoute = require("./routes/campains");
 const testerRoute = require("./routes/testers");
+const adRoute = require("./routes/ads");
+const reviewRoute = require("./routes/reviews");
+const searchRoute = require("./routes/search");
 
 app.use(express.json());
 
@@ -37,7 +40,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const port = 8001;
 
-console.log(serviceAccount);
+// console.log(serviceAccount);
 
 // Firebase 초기화
 admin.initializeApp({
@@ -48,6 +51,9 @@ admin.initializeApp({
 app.use("/auth", userRoute);
 app.use("/campain", campainRoute);
 app.use("/tester", testerRoute);
+app.use("/ad", adRoute);
+app.use("/review", reviewRoute);
+app.use("/keyword", searchRoute);
 
 const cname = "Campain";
 
